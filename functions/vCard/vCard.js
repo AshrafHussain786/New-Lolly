@@ -35,23 +35,24 @@ Query: {
 },
 Mutation: {
   addVCard: async (_, { c1, c2, c3, rec, msg, sender }) => {
-    var adminClient = new faunadb.Client({ secret: 'fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp' });
+    // var adminClient = new faunadb.Client({ secret: 'fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp' });
     console.log("============================");
     console.log(c1, c2, c3, rec, msg, sender);
     console.log("============================");
-    
-    const result = await adminClient.query(
-      q.Create(
-        q.Collection('vCards'),
-        {
-          data: {
-            c1, c2, c3, rec, msg, sender,
-            link: shortid.generate()
-          }
-        },
-      )
-    )
-    return result.data.data
+
+    // const result = await adminClient.query(
+    //   q.Create(
+    //     q.Collection('vCards'),
+    //     {
+    //       data: {
+    //         c1, c2, c3, rec, msg, sender,
+    //         link: shortid.generate()
+    //       }
+    //     },
+    //   )
+    // )
+    // return result.data.data
+    return {}
   }
 }
 }

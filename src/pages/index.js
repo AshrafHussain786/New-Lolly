@@ -1,6 +1,6 @@
 import React, { useRef, useState } from 'react';
 import Lolly from '../components/lolly'
-import {useQuery, useMutation } from '@apollo/client';
+import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import "../styles/main.css";
 
@@ -13,13 +13,13 @@ import "../styles/main.css";
 // }
 // `;
 
-const getAllData = gql`
-{
-    getVCard {
-      id
-  }
-}
-`;
+// const getAllData = gql`
+// {
+//     getVCard {
+//       id
+//   }
+// }
+// `;
 
 const ADD_VCARD = gql`
     mutation addVCard($c1: String!, 
@@ -60,14 +60,14 @@ export default function Home() {
     const recField = useRef();
     const msgField = useRef();
 
-    const { loading, error, data } = useQuery(getAllData);
-    if (loading)
-        return <h2>Loading..</h2>
+    // const { loading, error, data } = useQuery(getAllData);
+    // if (loading)
+    //     return <h2>Loading..</h2>
 
-    if (error)
-        return <h2>Error</h2>
+    // if (error)
+    //     return <h2>Error</h2>
 
-    console.log(data)
+    // console.log(data)
 
     return (<div className="container">
         <h1>Create Lolly</h1>
