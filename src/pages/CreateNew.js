@@ -29,7 +29,8 @@ const ADD_VCARD = gql`
     $sender: String!
     $msg: String!
   ) {
-    addVCard(c1: $c1, 
+    addVCard(
+      c1: $c1, 
       c2: $c2, 
       c3: $c3, 
       rec: $rec, 

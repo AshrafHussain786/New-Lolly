@@ -29,7 +29,7 @@ type Mutation {
     msg: String) : vCard
 }
 `
-var client = new faunadb.Client({ secret: 'fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp' });
+var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
 const resolvers = {
 Query: {
 
@@ -67,7 +67,6 @@ Query: {
 
 Mutation: {
   addVCard: async (_, { c1, c2, c3, rec, msg, sender }) => {
-    // var adminClient = new faunadb.Client({ secret: 'fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp' });
     console.log("============================");
     console.log(c1, c2, c3, rec, msg, sender);
     console.log("============================");
@@ -84,7 +83,8 @@ Mutation: {
       )
     )
 
-    axios    
+    // new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET })
+    axios        
         .post("https://api.netlify.com/build_hooks/606eb486b2e4b887e171bf08")
         .then(function (response) {
           console.log(response)
