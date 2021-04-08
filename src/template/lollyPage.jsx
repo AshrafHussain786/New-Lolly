@@ -8,7 +8,7 @@ export default function LollyPage(lolly) {
   return (
     <div>
 
-      <h5>Share this lolly link to your friend: </h5>{" "}      
+      <h5>Share this lolly link to your friend </h5>{" "}      
       <span>
         {" "}        
         {`https://new-lolly-ashraf.netlify.app${location.pathname}/`}
