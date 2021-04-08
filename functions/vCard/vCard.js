@@ -1,31 +1,32 @@
 const { ApolloServer, gql } = require('apollo-server-lambda')
-const faunadb = require('faunadb'),
-  q = faunadb.query;
+const faunadb = require('faunadb');
+const axios = require("axios");
+q = faunadb.query;
 const shortid = require('shortid');
 
 const typeDefs = gql`
 type Query {
   hello: String
   getVCard: [vCard]
-  getLollyByLink(link: String!): vCard
+  getLollyByLink(link: String): vCard
 }
-type vCard {
-  id: ID!
-  c1: String!
-  c2: String!
-  c3: String!
-  rec: String!
-  sender: String!
-  msg: String!
-  link: String!
+type vCard {  
+  c1: String
+  c2: String
+  c3: String
+  rec: String
+  sender: String
+  msg: String
+  link: String
 }
 type Mutation {
-  addVCard(c1: String!, 
-    c2: String!,
-    c3: String!,
-    rec: String!,
-    sender: String!,
-    msg: String!) : vCard
+  addVCard(
+    c1: String, 
+    c2: String,
+    c3: String,
+    rec: String,
+    sender: String,
+    msg: String) : vCard
 }
 `
 var client = new faunadb.Client({ secret: 'fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp' });
@@ -82,6 +83,16 @@ Mutation: {
         },
       )
     )
+
+    axios    
+        .post("https://api.netlify.com/build_hooks/606eb486b2e4b887e171bf08")
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.error(error)
+        })
+
     return result.data.data
   }
 }
