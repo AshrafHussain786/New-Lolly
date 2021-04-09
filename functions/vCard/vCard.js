@@ -2,6 +2,7 @@ const { ApolloServer, gql } = require('apollo-server-lambda')
 const faunadb = require('faunadb');
 const axios = require("axios");
 q = faunadb.query;
+require("dotenv").config();
 const shortid = require('shortid');
 
 const typeDefs = gql`
@@ -29,7 +30,9 @@ type Mutation {
     msg: String) : vCard
 }
 `
-var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+// var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+var client = new faunadb.Client({ secret: "fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp" });
+
 const resolvers = {
 Query: {
 
