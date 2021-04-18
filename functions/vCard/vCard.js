@@ -1,9 +1,9 @@
-const { ApolloServer, gql } = require("apollo-server-lambda")
-const faunadb = require("faunadb")
-const axios = require("axios")
-q = faunadb.query
-require("dotenv").config()
-const shortid = require("shortid")
+const { ApolloServer, gql } = require("apollo-server-lambda");
+const faunadb = require("faunadb");
+const axios = require("axios");
+q = faunadb.query;
+require("dotenv").config();
+// const shortid = require("shortid")
 
 const typeDefs = gql`
   type Query {
@@ -89,7 +89,7 @@ const resolvers = {
 
       // new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET })
       axios
-        .post("https://api.netlify.com/build_hooks/606eb486b2e4b887e171bf08")
+        .post("https://api.netlify.com/build_hooks/607c44e23d1282a75ef48bb1")
         .then(function (response) {
           console.log(response)
         })
