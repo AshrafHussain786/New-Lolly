@@ -63,10 +63,10 @@ export default function Home() {
         rec: recField.current.value,
         sender: senderField.current.value,
         msg: msgField.current.value,
-        link: slug,
+        link: slug.toString(),
       },
     });
-    await navigate(`/lolly/${result?.data?.addVCard?.link}`)
+    await navigate(`/lolly/${slug}`)
   }
 
   const senderField = useRef()
