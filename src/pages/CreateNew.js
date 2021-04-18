@@ -66,7 +66,7 @@ export default function Home() {
         link: link,
       },
     });
-    await navigate(`/lolly/${result.data?.addVCard?.link}`)
+    await navigate(`/lolly/${result?.data?.addVCard?.link}`)
   }
 
   const senderField = useRef()
