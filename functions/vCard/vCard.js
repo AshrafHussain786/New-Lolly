@@ -68,7 +68,7 @@ const resolvers = {
   },
 
   Mutation: {
-    addVCard: async (_, { c1, c2, c3, rec, msg, sender }) => {
+    addVCard: async (_, { c1, c2, c3, rec, msg, sender, link }) => {
       console.log("============================")
       console.log(c1, c2, c3, rec, msg, sender)
       console.log("============================")
@@ -82,7 +82,7 @@ const resolvers = {
             rec,
             msg,
             sender,
-            link: shortid.generate(),
+            link,
           },
         })
       )
