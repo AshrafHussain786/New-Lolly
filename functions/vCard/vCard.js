@@ -7,27 +7,27 @@ const shortid = require("shortid")
 
 const typeDefs = gql`
   type Query {
-    hello: String
-    getVCard: [vCard]
-    getLollyByLink(link: String): vCard
+    hello: String!
+    getVCard: [vCard!]
+    getLollyByLink(link: String!): vCard
   }
   type vCard {
-    c1: String
-    c2: String
-    c3: String
-    rec: String
-    sender: String
-    msg: String
-    link: String
+    c1: String!
+    c2: String!
+    c3: String!
+    rec: String!
+    sender: String!
+    msg: String!
+    link: String!
   }
   type Mutation {
     addVCard(
-      c1: String
-      c2: String
-      c3: String
-      rec: String
-      sender: String
-      msg: String
+      c1: String!
+      c2: String!
+      c3: String!
+      rec: String!
+      sender: String!
+      msg: String!
     ): vCard
   }
 `
