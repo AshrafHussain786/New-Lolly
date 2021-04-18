@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 import Lolly from "../components/lolly";
 import { useMutation } from "@apollo/client";
 import gql from "graphql-tag";
+import { navigate } from "gatsby";
+import shortid from "shortid";
 
 // const getAllData = gql`
 // {
@@ -48,11 +50,12 @@ export default function Home() {
 
   const [addVCard] = useMutation(ADD_VCARD)
 
-  const handleSubmit = () => {
+  const handleSubmit = async (values, actions) => {
+    const link = shortid.generate();
     console.log(senderField.current.value)
     console.log(recField.current.value)
     console.log(msgField.current.value)
-    addVCard({
+    const result = await addVCard({
       variables: {
         c1,
         c2,
@@ -60,8 +63,10 @@ export default function Home() {
         rec: recField.current.value,
         sender: senderField.current.value,
         msg: msgField.current.value,
+        link: link,
       },
-    })
+    });
+    await navigate(`/lolly/${result.data?.addVCard?.link}`)
   }
 
   const senderField = useRef()

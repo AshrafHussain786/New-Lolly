@@ -4,6 +4,7 @@ import Lolly from '../components/lolly';
 export default function LollyPage(lolly) {
 
   const {location, pageContext} = lolly;
+  console.log("location", location);
   console.log("page context", pageContext);
   return (
     <div>
@@ -11,7 +12,7 @@ export default function LollyPage(lolly) {
       <h5>Share this lolly link to your friend </h5>{" "}      
       <span>
         {" "}        
-        {`https://new-lolly-ashraf.netlify.app${location.pathname}/`}
+        {`https://new-lolly-ashraf.netlify.app/lolly/${pageContext.link}/`}
       </span>
       <div>
         <Lolly
