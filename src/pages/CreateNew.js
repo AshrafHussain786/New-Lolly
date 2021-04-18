@@ -51,7 +51,7 @@ export default function Home() {
   const [addVCard] = useMutation(ADD_VCARD)
 
   const handleSubmit = async (values, actions) => {
-    const link = shortid.generate();
+    const slug = shortid.generate();
     console.log(senderField.current.value)
     console.log(recField.current.value)
     console.log(msgField.current.value)
@@ -63,7 +63,7 @@ export default function Home() {
         rec: recField.current.value,
         sender: senderField.current.value,
         msg: msgField.current.value,
-        link: link,
+        link: slug,
       },
     });
     await navigate(`/lolly/${result?.data?.addVCard?.link}`)
