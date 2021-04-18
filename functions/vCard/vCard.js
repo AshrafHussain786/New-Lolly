@@ -32,8 +32,8 @@ const typeDefs = gql`
     ): vCard
   }
 `
-// var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
-var client = new faunadb.Client({secret: "fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp"})
+var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+// var client = new faunadb.Client({secret: "fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp"})
 
 const resolvers = {
   Query: {
