@@ -12,7 +12,7 @@ export default function LollyPage(lolly) {
       <h5>Share this lolly link to your friend </h5>{" "}      
       <span>
         {" "}        
-        {`https://new-lolly-ashraf.netlify.app/lolly/${pageContext.link}/`}
+        {`https://new-lolly-ashraf.netlify.app${location.pathname}/`}
       </span>
       <div>
         <Lolly
