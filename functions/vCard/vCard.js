@@ -69,10 +69,10 @@ const resolvers = {
 
   Mutation: {
     addVCard: async (_, { c1, c2, c3, rec, msg, sender, link }) => {
-      console.log("============================")
-      console.log(c1, c2, c3, rec, msg, sender)
-      console.log("============================")
-
+      console.log("====================================")
+      console.log(c1, c2, c3, rec, msg, sender, link)
+      console.log("====================================")
+      try {
       const result = await client.query(
         q.Create(q.Collection("vCards"), {
           data: {
@@ -97,7 +97,10 @@ const resolvers = {
           console.error(error)
         })
 
-      return result.data.data
+      return result.data;
+      } catch (error) {
+        return error.toString();
+      }
     },
   },
 }
