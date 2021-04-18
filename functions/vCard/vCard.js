@@ -28,6 +28,7 @@ const typeDefs = gql`
       rec: String!
       sender: String!
       msg: String!
+      link: String!
     ): vCard
   }
 `
