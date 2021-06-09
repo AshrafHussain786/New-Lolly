@@ -53,7 +53,7 @@ const ADD_VCARD = gql`
   }
 `
 
-export default function Home() {
+const CreateNew = () => {
   const [c1, setC1] = useState("#deaa43")
   const [c2, setC2] = useState("#e95946")
   const [c3, setC3] = useState("#d52358")
@@ -156,3 +156,5 @@ export default function Home() {
     </div>
   )
 }
+
+export default CreateNew;

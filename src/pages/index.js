@@ -20,8 +20,6 @@ export default function Home() {
       </div>
  
       <button onClick={() => navigate("/CreateNew")}> Create New Lolly </button>
-      {/* <br/>
-      <button onClick={() => navigate("/template/lollyPage")}> Template Lolly </button> */}
     </div>
   )
 }
