@@ -7,7 +7,7 @@ export default function LollyPage(lolly) {
   console.log("location", location);
   console.log("page context", pageContext);
   return (
-    <div>
+    <div className="container">
 
       <h5>Share this lolly link to your friend </h5>{" "}      
       <span>
