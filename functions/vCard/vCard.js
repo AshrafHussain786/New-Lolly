@@ -2,7 +2,7 @@ const { ApolloServer, gql } = require("apollo-server-lambda");
 const faunadb = require("faunadb");
 const axios = require("axios");
 q = faunadb.query;
-require("dotenv").config();
+// require("dotenv").config();
 // const shortid = require("shortid")
 
 const typeDefs = gql`
@@ -32,8 +32,8 @@ const typeDefs = gql`
     ): vCard
   }
 `
-var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
-// var client = new faunadb.Client({secret: "fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp"})
+// var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
+var client = new faunadb.Client({secret: "fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp"})
 
 const resolvers = {
   Query: {
@@ -43,22 +43,22 @@ const resolvers = {
 
     getVCard: async (root, args, context) => {
       var result = await client.query(
-        q.Map(
-          q.Paginate(q.Match(q.Index("link"))),
+        q.Map(q.Paginate(q.Match(q.Index("link"))),
           q.Lambda("x", q.Get(q.Var("x")))
         )
       )
-      let x = []
+      let x = [];
       result.data.map(curr => {
         x.push(curr.data)
       })
-      return x
+      return x;
     },
 
     getLollyByLink: async (_, { link }) => {
       console.log(link)
       try {
-        const result = await client.query(q.Get(q.Match(q.Index("link"), link)))
+        const result = await client.query(
+          q.Get(q.Match(q.Index("link"), link)))
         console.log(result)
         return result.data
       } catch (error) {
@@ -97,6 +97,7 @@ const resolvers = {
           console.error(error)
         })
 
+      console.log("Result in addMutation >>>>> ", result)
       return result.data;
       } catch (error) {
         return error.toString();

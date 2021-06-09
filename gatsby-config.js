@@ -19,3 +19,6 @@ module.exports = {
     }
   ],
 }
+
+// FaunaDB 
+// https://dashboard.fauna.com/collections/vCards/@db/global/Lolly
