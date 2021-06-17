@@ -34,7 +34,7 @@ const typeDefs = gql`
 `
 // var client = new faunadb.Client({ secret: process.env.FAUNADB_SERVER_SECRET });
 // var client = new faunadb.Client({secret: "fnAEGJYyhzACB422ziWq42_43HjnetVjZ-48rfJp"});
-var client = new faunadb.Client({secret: "fnAELS1_RpACAWJ45ctLI2BoiT4nLRoEaPck_xtW"});
+var client = new faunadb.Client({secret: "fnAELXwOucACBRWGQMlblAIXFeW4IvVC3kILxMEJ"});
 
 const resolvers = {
   Query: {
